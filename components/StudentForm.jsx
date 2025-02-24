@@ -10,21 +10,18 @@ export default function StudentForm({ onAddStudent }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation: ensure all fields are filled
     if (!firstName || !lastName || !dob || !grade) {
       setError('All fields are required.');
       return;
     }
-    // Create a new student object
     const newStudent = {
-      id: Date.now(), // simple unique ID based on timestamp
+      id: Date.now(), 
       firstName,
       lastName,
       dob,
       grade
     };
     onAddStudent(newStudent);
-    // Clear the form and error message
     setFirstName('');
     setLastName('');
     setDob('');
